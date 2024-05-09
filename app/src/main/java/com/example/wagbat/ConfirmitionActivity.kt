@@ -3,9 +3,9 @@ package com.example.wagbat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class PaymentActivity : AppCompatActivity() {
+class ConfirmitionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_payment)
+        setContentView(R.layout.activity_confirmation)
     }
 }
