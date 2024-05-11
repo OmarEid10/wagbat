@@ -1,6 +1,5 @@
 package com.example.waagbaat
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -40,7 +39,8 @@ class login : AppCompatActivity() {
             if(email.isNotEmpty() &&password.isNotEmpty()){
                 firebaseAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener{
                     if(it.isSuccessful){
-                        val intent = Intent(this,MainActivity::class.java)
+                        val intent = Intent(this, Profile::class.java)
+                        intent.putExtra("key",email)
                         startActivity(intent)
                     }else{
                         Toast.makeText(this,it.exception.toString(),Toast.LENGTH_LONG).show()
