@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/first_color"
         android:padding="8dp">
 
         <TextView
@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dish 1"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@id/img_child"
             app:layout_constraintStart_toStartOf="parent"
             />
@@ -39,6 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="99.99"
+            android:textColor="@color/white"
             app:layout_constraintTop_toBottomOf="@id/img_child"
             app:layout_constraintStart_toStartOf="parent"
             />

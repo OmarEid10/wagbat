@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    android:background="@color/white"
+    tools:context=".ProfileActivity">
 
     <TextView
         android:id="@+id/wagbat"
@@ -29,11 +30,10 @@
         android:background="@drawable/baseline_account_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBaseline_toTopOf="parent"
-        android:layout_marginTop="250dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="250dp" />
+        app:layout_constraintTop_toBottomOf="@id/wagbat"
+        android:layout_marginTop="50dp"
+        tools:layout_editor_absoluteY="250dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/email_profile"
@@ -54,7 +54,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/your_order"
+        android:text="your_order"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -65,16 +65,16 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="387dp" />
 
-<View
-    android:layout_width="350dp"
-    android:layout_height="250dp"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/tv_title"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:layout_marginTop="10dp"
-    android:background="@color/first_color"
-    tools:ignore="ExtraText">
+    <View
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:background="@color/first_color"
+        tools:ignore="ExtraText">
 
 
-</View>
+    </View>
 </androidx.constraintlayout.widget.ConstraintLayout>

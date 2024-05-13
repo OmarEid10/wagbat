@@ -1,23 +1,30 @@
 package com.example.wagbat
 
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.mkrdeveloper.nestedrecyclerviewexample.adapters.ParentAdapter
 import androidx.appcompat.widget.SearchView
+import com.example.wagbat.databinding.ActivityResturantBinding
 import com.mkrdeveloper.nestedrecyclerviewexample.models.ChildDataClass
 import com.mkrdeveloper.nestedrecyclerviewexample.models.ParentDataClass
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ResturantActivity : AppCompatActivity() {
 
+
+class ResturantActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityResturantBinding
     private val parentItemsList = ArrayList<ParentDataClass>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_resturant)
+        binding = ActivityResturantBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val rvParent = findViewById<RecyclerView>(R.id.rv_parent)
         rvParent.setHasFixedSize(true)
         rvParent.layoutManager = LinearLayoutManager(this)
@@ -30,39 +37,62 @@ class ResturantActivity : AppCompatActivity() {
 
         rvParent.adapter = adapter
 
+        binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.cart -> {
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
+                    true // Return true to indicate that the listener has consumed the event
+                }
+                R.id.profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.home -> {
+                    val intent = Intent(this, ResturantActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false // Return false for all other items to indicate that the event has not been consumed
+            }
+        }
 
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-
                 val searchList = ArrayList<ParentDataClass>()
 
-
-                if (newText != null){
-                    for (i in parentItemsList){
-                        if (i.title.lowercase(Locale.ROOT).contains(newText)){
+                if (newText != null) {
+                    for (i in parentItemsList) {
+                        if (i.title.lowercase(Locale.ROOT).contains(newText)) {
                             searchList.add(i)
                         }
                     }
-                    if (searchList.isEmpty()){
-                        Toast.makeText(this@ResturantActivity, " No Data", Toast.LENGTH_SHORT).show()
-                    }else{
-
+                    if (searchList.isEmpty()) {
+                        Toast.makeText(
+                            this@ResturantActivity,
+                            " No Data",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
                         adapter.onApplySearch(searchList)
                     }
                 }
-
-
 
                 return true
             }
 
         })
-
     }
+
+
+
+
+
 
     private fun setData() {
 
@@ -177,5 +207,7 @@ class ResturantActivity : AppCompatActivity() {
 
         parentItemsList.add(ParentDataClass("Novel:", childItemsList10))
 
+
     }
+
 }
