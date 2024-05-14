@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OrderConfirmActivity">
 
 
     <TextView
@@ -31,7 +32,7 @@
 
 
     <RadioGroup
-        android:id="@+id/timeButton"
+        android:id="@+id/timeButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -41,6 +42,7 @@
          >
 
         <RadioButton
+            android:id="@+id/radioButton1"
             android:background="@drawable/custom_radio_selector"
             android:button="@color/black"
             android:layout_width="150dp"
@@ -53,6 +55,7 @@
         </RadioButton>
 
         <RadioButton
+            android:id="@+id/radioButton2"
             android:background="@drawable/custom_radio_selector"
             android:button="@color/black"
             android:layout_width="150dp"
@@ -75,10 +78,11 @@
         android:paddingLeft="10dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timeButton" />
+        app:layout_constraintTop_toBottomOf="@+id/timeButtons" />
 
 
     <RadioGroup
+        android:id="@+id/placeButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
@@ -88,6 +92,7 @@
         >
 
         <RadioButton
+            android:id="@+id/radioButton3"
             android:background="@drawable/custom_radio_selector"
             android:button="@color/black"
             android:layout_width="150dp"
@@ -100,6 +105,7 @@
         </RadioButton>
 
         <RadioButton
+            android:id="@+id/radioButton4"
             android:background="@drawable/custom_radio_selector"
             android:button="@color/black"
             android:layout_width="150dp"
